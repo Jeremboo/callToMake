@@ -16,10 +16,10 @@ Par exemple, il serra possible associer le numéro "4" du téléphone à une act
 
 ### Démontage
 
-![Disassembling 1](/photos/0_callToMake_disassembling_1.jpg width="500")
-![Disassembling 2](/photos/0_callToMake_disassembling_2.jpg width="500")
+![Disassembling 1](https://github.com/Jeremboo/callToMake/blob/master/photos/0_callToMake_disassembling_1.jpg width="500")
+![Disassembling 2](https://github.com/Jeremboo/callToMake/blob/master/photos/0_callToMake_disassembling_2.jpg width="500")
 
 ### Capture du signal du cadran
 
-![Dial Signal 1](/photos/1_callToMake_dialsignal_1.JPG width="500")
+![Dial Signal 1](https://github.com/Jeremboo/callToMake/blob/master/photos/0_callToMake_dialsignal_1.JPG width="500")
 
