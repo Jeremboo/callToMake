@@ -38,7 +38,20 @@ Mais le signal permettant de définir le numéro composé n'est pas net et donne
 
 Nous avons donc, à l'aide de la méthode `TODO`, récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état. Ce qui nous a permis d'ommettre les aléas du signal capté. 
 
-### Remplacement sur micro d'origine
+### Utilisation du combiné
+
+#### Le haut parleur
+
+Afin de tester le haut parleur du téléphone, nous avons dans un premier temps juste fait passer un courant alternatif dans celui-ci. 
+
+Le signal étant satisfaisant (big continu suffisament audible), à l'aide du shield audio d'arduino, nous avons essayé de jouer une piste audio via le haut parleur. Et une fois les deux cables du combiné lié à une prise jack, nous avons pu tester le haut parleur directement lié à l'arduino. 
+
+Et le résultat était très satisfaisant ! 
+
+De ce fait, nous avons décidé de garder le haut parleur de base du combiné pour notre projet.
+
+#### Le micro
+
 
 ### Connection de l'arduino avec un serveur node.js
 
