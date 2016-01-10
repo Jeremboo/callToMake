@@ -10,21 +10,18 @@ Notre but est de pouvoir connecter notre téléphone à une application logiciel
 
 Par exemple, il serra possible d'associer le numéro "4" du téléphone à une action spécifique tel que "activer/desactiver le wifi".
 
-
-
-
-# Réalisation
-
-## SCHEMAS
+## Schemas
 
 <img alt="UML" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/UML.jpg?raw=true">
 
-##Déroulement du workshop
+
+## Déroulement du workshop
 
 ### Démontage
 
 <img alt="Disassembling 1" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/0_callToMake_disassembling_1.jpg?raw=true" width="300">
 <img alt="Disassembling 1" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/0_callToMake_disassembling_2.jpg?raw=true" width="300">
+
 
 ### Capture du signal du cadran
 
@@ -51,15 +48,24 @@ Nous avons donc, à l'aide de la méthode `TODO`, récupéré le signal analogiq
 
 Afin de tester le haut parleur du téléphone, nous avons dans un premier temps juste fait passer un courant alternatif dans celui-ci.
 
-Le signal étant satisfaisant (big continu suffisament audible), à l'aide du shield audio d'arduino, nous avons essayé de jouer une piste audio via le haut parleur. Et une fois les deux cables du combiné lié à une prise jack, nous avons pu tester le haut parleur directement lié à l'arduino.
+Le signal étant satisfaisant (bip continu suffisament audible), à l'aide du shield audio d'arduino, nous avons essayé de jouer une piste audio via le haut parleur. Et une fois les deux cables du combiné lié à une prise jack, nous avons pu tester le haut parleur directement lié à l'arduino.
 
-Et le résultat était très satisfaisant !
+Et le résultat était très satisfaisant ! Grâce à la prise jack, le combiné peut être branché à n'importe quel appareil produisant du son.
+
+<img alt="Combiné avec prise jack" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/2_callToMake_usingMicrophone.JPG?raw=true" width="300">
 
 De ce fait, nous avons décidé de garder le haut parleur de base du combiné pour notre projet.
 
 #### Le micro
 
 
-### Connection de l'arduino avec un serveur node.js
+### Connection et dialogue de l'enssemble :
+
+L'arduino cablée au telephone est connectée par USB à la carte Raspberry qui, grâce à un serveur node.js, capture les informations émisent pas l'arduino.
+
+Cet enssemble représente le téléphone qui est indépendant de l'ordinateur grace à une clé Wifi branchée sur la Raspberry PI lui permettant de s'y connecter via SSH.
+
+<img alt="Arduino to Raspberry" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/3_callToMake_ArduinoToRaspberry.JPG?raw=true" width="300">
+
 
 ### Création de l'application
