@@ -4,7 +4,10 @@
   "description": "Reappropriation of a rotary phone with the aid of an Arduino through a workshop at Gobelin, l'école de l'image.",
   "main": "main.js",
   "dependencies": {
-    "electron-prebuilt": "^0.33.6"
+    "electron-prebuilt": "^0.33.6",
+    "express": "^4.13.3",
+    "menubar": "^3.0.0",
+    "socket.io": "^1.4.4"
   },
   "devDependencies": {
     "electron-prebuilt": "^0.33.6"
