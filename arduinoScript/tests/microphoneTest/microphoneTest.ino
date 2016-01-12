@@ -4,8 +4,8 @@ void setup() {
 }
 
 void loop() {
-  int microValue = analogRead(A0);
-  float voltage = microValue / 100;
+  float microValue = analogRead(A0);
+  float voltage = microValue;
   // print out the value you read:
   Serial.println(voltage);
 }

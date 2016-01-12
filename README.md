@@ -10,12 +10,18 @@ Notre but est de pouvoir connecter notre téléphone à une application logiciel
 
 Par exemple, il serra possible d'associer le numéro "4" du téléphone à une action spécifique tel que "activer/desactiver le wifi".
 
-## Schemas
+## Schema du workflow
 
 <img alt="UML" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/UML.jpg?raw=true">
 
+## Schema du montage
 
-## Déroulement du workshop
+**TODO : Faire le schéma grossié.**
+
+
+# Déroulement du workshop
+
+## Utilisation des composant du téléphone
 
 ### Démontage
 
@@ -40,7 +46,28 @@ Mais le signal permettant de définir le numéro composé n'est pas net et donne
 - `010101011`
 - `0110100011`
 
-Nous avons donc, à l'aide de la méthode `TODO`, récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état. Ce qui nous a permis d'ommettre les aléas du signal capté.
+Nous avons donc récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état grâce à un `attachInterrupt`. Ce qui nous a permis d'ommettre les aléas du signal capté et d'ainsi de pouvoir compté le nombre de scésures dans le signal.
+
+**TODO : Mettre le code qui nous a permis de faire ça**
+
+
+Au final, nous avons utilisé la librairie [RotoPhone](https://github.com/tournevis/rotoPhone) écrite par [Arthur Rob](https://github.com/tournevis) afin d'avoir un projet bien segmenté.
+
+### Détection du décrochage/raccrochage
+
+**TODO : Mettre le lien vers le schéma de cablage du téléphone.**
+
+En regardant le [schéma de cablage du téléphone](), nous avons pu détecté deux points auquel il était possible de se brancher pour utiliser le mécanisme du combiné comme un simple interrupteur. Il a donc été très simple d'analyser le signal.
+
+Malheureusement, le changement d'état n'était pas net et produisait un signal avec des intterférences tel que :
+
+- `0000000000001100101011100111111111111111111`
+
+Ce qui rend impossible l'utilisation de la fonction `attachInterrupt`. Il a donc fallut utiliser la méthode dite `Nom de la méthode d'Arthur` afin d'être sur qu'un changement d'état s'oppère réellement avant de le valider.
+
+**TODO : Mettre le script pour l'interruption**
+
+Nous avons ensuite ajouté cette fonctionnalitée à la librairie [RotoPhone](https://github.com/tournevis/rotoPhone) afin de la rendre compatible avec la capture du signal.
 
 ### Utilisation du combiné
 
@@ -57,6 +84,34 @@ Et le résultat était très satisfaisant ! Grâce à la prise jack, le combiné
 De ce fait, nous avons décidé de garder le haut parleur de base du combiné pour notre projet.
 
 #### Le micro
+
+
+# Montage
+
+**TODO : Arduino prend le cadran et le décrochage**
+
+**TODO : Raspberry prend l'audio pour sa puissance**
+
+**TODO : Le tout écouté par un serveur node sur l'ordi**
+
+
+### Montage avec l'arduino
+
+#### Cablage
+
+**TODO : Parler des problèmes de compatibilitée entre les deux circuits.**
+
+**TODO : Parler du PULL UP pour éviter les interférences dans le signal.**
+
+**TODO : Mettre le schéma final.**
+
+#### Données envoyées
+
+- Numérotation : 0 à 9
+- PickUp : 10
+- HangUp : 20
+
+### Montage avec la Raspberry
 
 
 ### Connection et dialogue de l'enssemble :
