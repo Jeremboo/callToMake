@@ -9,7 +9,9 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  say.speak('Alex', 'whats up, dog?');
+  setTimeout(function() {
+    say.speak('Alex', 'whats up, dog?');
+  }, 10000);
 });
 
 io.on('disconnect', function(socket){
