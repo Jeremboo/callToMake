@@ -1,6 +1,6 @@
 #include <RotoPhone.h>
 
-int _notaryNumber;
+int _rotaryNumber;
 boolean _isPick;
 
 RotoPhone roto(4,6,2, false);
@@ -13,10 +13,10 @@ void loop() {
 
   // ##
   // Capture the rotary number
-  _notaryNumber = roto.number();
+  _rotaryNumber = roto.number();
   // - Send message
-  if(_notaryNumber >= 0){
-    Serial.println(_notaryNumber);
+  if(_rotaryNumber >= 0){
+    Serial.println(_rotaryNumber);
   }
 
   // ##

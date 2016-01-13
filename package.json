@@ -5,9 +5,10 @@
   "main": "main.js",
   "dependencies": {
     "electron-prebuilt": "^0.33.6",
-    "serialport": "^2.0.6",
     "express": "^4.13.3",
     "menubar": "^3.0.0",
+    "say": "^0.6.0",
+    "serialport": "^2.0.6",
     "socket.io": "^1.4.4"
   },
   "devDependencies": {
