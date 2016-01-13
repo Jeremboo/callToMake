@@ -8,6 +8,11 @@ app.get('/', function(req, res){
 
 io.on('connection', function(socket){
   console.log('a user connected');
+  var utterance = new SpeechSynthesisUtterance('Jérémie est le plus beau');
+});
+
+io.on('disconnect', function(socket){
+  console.log('a user disconnected');
 });
 
 http.listen(7777, function(){
