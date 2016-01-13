@@ -5,10 +5,9 @@ var say = require('say');
 
 io.on('connection', function(socket){
   console.log('a user connected');
-  // setTimeout(function() {
-  //   say.speak('Alex', 'whats up, dog?');
-  // }, 10000);
-  say.speak('Alex', 'whats up, dog?');
+  setTimeout(function() {
+    say.speak('Alex', 'whats up, dog?');
+  }, 10000);
 });
 
 io.on('disconnect', function(socket){
