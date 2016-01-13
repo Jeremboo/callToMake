@@ -1,5 +1,4 @@
-/server/node_modules/*
-node_modules/*
+node_modules
 *.tmp
 
 # OS or Editor folders

@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using io.js <script>document.write(process.version)</script>
-    and Electron <script>document.write(process.versions['electron'])</script>.
+    <div class="container">
+      <ul>
+        <li>Fonctionnalité 1</li>
+        <li>Fonctionnalité 2</li>
+        <li>Fonctionnalité 3</li>
+        <li>Fonctionnalité 4</li>
+        <li>Fonctionnalité 5</li>
+      </ul>
+    </div>
+    <script src="https://cdn.socket.io/socket.io-1.4.3.js"></script>
+    <script type="text/javascript">
+      var socket = io('http://localhost:7777');
+    </script>
   </body>
 </html>
