@@ -3,7 +3,7 @@ import { render } from 'react-dom'
 
 // First we import some components...
 import { Router, Route, Link, History } from 'react-router'
-const mySocket = io.connect('http://192.168.0.20:7777');
+const mySocket = io.connect('http://192.168.3.2:7777');
 
 const Menu = React.createClass({
   render: function() {
@@ -15,6 +15,41 @@ const Menu = React.createClass({
         <li>Fonctionnalité 4</li>
         <li>Fonctionnalité 5</li>
       </ul>
+    )
+  }
+});
+
+const Meteo = React.createClass({
+  getInitialState: function() {
+    return{
+      position: {
+        latitude: 0,
+        longitude: 0
+      }
+    }
+  },
+  componentDidMount: function() {
+    let position = {};
+    //this.setState({position: {latitude: 0, longitude: 0}}) ;
+
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        console.log(pos);
+        this.setState({position: pos.coords});
+      },
+      (err) => {
+        this.setState({ position: {} });
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+      }
+    );
+  },
+  render: function() {
+    console.log(this.state.position);
+    const src = "http://forecast.io/embed/#lat=" + this.state.position.latitude + "&lon=" + this.state.position.longitude + "&units=si";
+    return(
+      <div className="meteo">
+        <iframe id="forecast_embed" type="text/html" frameBorder="0" height="245" width="100%" src={src} > </iframe>
+      </div>
     )
   }
 });
@@ -84,6 +119,11 @@ const App = React.createClass({
         console.log('go to channel 1');
         this.history.pushState(null, '/mytranslation');
       }
+
+      if (channel == 2) {
+        console.log('go to channel 2');
+        this.history.pushState(null, '/meteo');
+      }
     });
 
     // Menu is active by default
@@ -110,6 +150,7 @@ render((
     <Route path="/" component={App}>
       <Route path="menu" component={Menu} socket={App} />
       <Route path="mytranslation" component={MyTranslation} />
+      <Route path="meteo" component={Meteo} />
     </Route>
   </Router>
 ), document.getElementById('wrapper'))

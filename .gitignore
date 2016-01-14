@@ -10,3 +10,7 @@ node_modules
 .tmproj
 nbproject
 Thumbs.db
+
+# babel
+
+app/js/bundle.js
