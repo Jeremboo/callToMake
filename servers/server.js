@@ -32,6 +32,11 @@ io.on('connection', function(socket){
     socket.emit('channel', num);
   });
 
+  // ##
+  // ERROR
+  myEmitter.on("error", function(errorMessage) {
+    socket.emit("error", errorMessage);
+  });
 });
 
 io.on('disconnect', function(socket){

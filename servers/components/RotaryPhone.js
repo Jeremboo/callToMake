@@ -9,8 +9,7 @@ function RotaryPhone(){
 
   //connectTo Arduino
   this.arduinoPlugged = false;
-  this.portName = '/dev/ttyACM0'; // '/dev/tty.usbmodem1421'; '/dev/ttyACM0';
-  //  this.connectToArduino();
+  this.portName = false; // '/dev/tty.usbmodem1421'; '/dev/ttyACM0';
 
   serialport.list(function (err, ports) {
     ports.forEach(function(port) {
@@ -22,7 +21,9 @@ function RotaryPhone(){
     if(this.portName){
       this.connectToArduino();
     } else {
-      console.error(" ERROR : Arduino not plugged");
+      var errorMessage = "Arduino not plugged";
+      myEmitter.emit("error", errorMessage);
+      console.error(" ERROR : " + errorMessage);
     }
   }.bind(this));
 }
