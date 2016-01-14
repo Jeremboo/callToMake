@@ -1,7 +1,8 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link, History } from 'react-router'
-<<<<<<< HEAD
+
+import Menu from './components/Menu.js';
 
 // ##
 // CONNECTION TO ROTARY PHONE
@@ -16,23 +17,6 @@ mySocket.on('error', (errorMessage) => {
   console.error(errorMessage);
 });
 
-=======
-const mySocket = io.connect('http://192.168.3.2:7777');
->>>>>>> 4287026463dee177e1e49a4222a5c27f40323f1e
-
-const Menu = React.createClass({
-  render: function() {
-    return (
-      <ul>
-        <li><Link to="/mytranslation">My Translation</Link></li>
-        <li>Fonctionnalité 2</li>
-        <li>Fonctionnalité 3</li>
-        <li>Fonctionnalité 4</li>
-        <li>Fonctionnalité 5</li>
-      </ul>
-    )
-  }
-});
 
 const Meteo = React.createClass({
   getInitialState: function() {
