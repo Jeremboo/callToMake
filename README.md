@@ -54,7 +54,7 @@ Mais le signal permettant de définir le numéro composé n'est pas net et donne
 
 Nous avons donc récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état grâce à un `attachInterrupt`. Ce qui nous a permis d'ommettre les aléas du signal capté et d'ainsi de pouvoir compté le nombre de scésures dans le signal.
 
-[Code de test ici.](https://github.com/Jeremboo/callToMake/blob/master/arduinoScript/tests/rotaryPhone/rotaryPhone.ino)
+[Code de test ici.](https://github.com/Jeremboo/callToMake/blob/master/0_TESTS/arduino/rotaryPhone/rotaryPhone.ino)
 
 Au final, nous avons utilisé la librairie [RotoPhone](https://github.com/tournevis/rotoPhone) écrite par [Arthur Rob](https://github.com/tournevis) afin d'avoir un projet bien segmenté.
 
@@ -111,7 +111,7 @@ De ce fait, nous avons décidé de garder le haut parleur de base du combiné po
 
 <img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/2_callToMake_usingMicrophone2.JPG?raw=true" width="300">
 
-Après avoir branché le microphone en série à une pin analogique de l'arduino ([voir code ici](https://github.com/Jeremboo/callToMake/blob/master/arduinoScript/tests/microphoneTest/microphoneTest.ino)), nous avons pu visualiser le signal envoyé. Nous pouvons en conclure que le micro peu être utilisé même si un amplificateur doit surement être ajouté au montage.
+Après avoir branché le microphone en série à une pin analogique de l'arduino ([voir code ici](https://github.com/Jeremboo/callToMake/blob/master/0_TEST/arduino/microphone/microphone.ino)), nous avons pu visualiser le signal envoyé. Nous pouvons en conclure que le micro peu être utilisé même si un amplificateur doit surement être ajouté au montage.
 
 
 ## 2 _ Montage
@@ -128,13 +128,11 @@ Il a donc fallu mettre le cablage du combiné en [INPUT_PULLUP](https://www.ardu
 
 #### Données envoyées
 
-Voici le [code téléversé dans l'arduino](https://github.com/Jeremboo/callToMake/blob/master/arduinoScript/rotaryPhone/rotaryPhone.ino). Celui-ci utilise la méthode `Serial.write()` afin d'envoyer des données au serveur. Voici les données envoyées au serveur :  
+Voici le [code téléversé dans l'arduino](https://github.com/Jeremboo/callToMake/blob/master/arduinoScript/rotaryPhone/rotaryPhone.ino). Celui-ci utilise la méthode `Serial.println()` afin d'envoyer des données au serveur. Voici les données envoyées au serveur :  
 
-**TODO : expliquer les données envoyé au serveur.**
-
-- Numérotation : 0 à 9
-- PickUp : 10
-- HangUp : 20
+- 0 à 9 (Numérotation)
+- 10 (Pick UP / Décroché)
+- 20 (Hang UP / Raccroché)
 
 ### Montage avec la Raspberry
 

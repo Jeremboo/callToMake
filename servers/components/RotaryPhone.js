@@ -9,7 +9,7 @@ function RotaryPhone(){
 
   //connectTo Arduino
   this.arduinoPlugged = false;
-  this.portName = false; //'/dev/tty.usbmodem1421';
+  this.portName = false; // '/dev/tty.usbmodem1421'; '/dev/ttyACM0';
 
   serialport.list(function (err, ports) {
     ports.forEach(function(port) {
