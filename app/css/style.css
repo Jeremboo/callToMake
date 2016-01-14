@@ -1,5 +1,6 @@
 html{
   font-size: 62.5%;
+  font-family: 'Old Standard TT', serif;
 }
 
 header{
@@ -33,4 +34,7 @@ li{
 }
 li:hover{
   background-color: #F2ECEB;
+}
+.mytranslation{
+  text-align: center;
 }
