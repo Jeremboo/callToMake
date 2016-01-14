@@ -9,9 +9,6 @@
     "serialport": "^2.0.6",
     "socket.io": "^1.4.4"
   },
-  "scripts": {
-    "build": "browserify -t [ babelify --presets [ es2015 react ] ] app/js/index.js -o app/js/bundle.js"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Jeremboo/callToMake.git"
