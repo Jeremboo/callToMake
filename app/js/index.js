@@ -1,9 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
-
-// First we import some components...
 import { Router, Route, Link, History } from 'react-router'
-const mySocket = io.connect('http://192.168.0.20:7777');
+
+// ##
+// CONNECTION TO ROTARY PHONE
+const mySocket = io.connect('http://192.168.2.2:2345');
+//TODO trouver automatiquement l'adresse ID grace a electron.
+
+mySocket.on('connected', (channel) => {
+  console.log("Connected");
+});
+
+mySocket.on('error', (errorMessage) => {
+  console.error(errorMessage);
+});
+
 
 const Menu = React.createClass({
   render: function() {
@@ -74,16 +85,24 @@ const MyTranslation = React.createClass({
   }
 });
 
-// Then we delete a bunch of code from App and
-// add some <Link> elements...
 const App = React.createClass({
   mixins: [ History ],
   getInitialState: function() {
     mySocket.on('channel', (channel) => {
+      console.log("numero composed :" + channel);
+
       if (channel == 1) {
-        console.log('go to channel 1');
+        console.log('go to channel ' + channel);
         this.history.pushState(null, '/mytranslation');
       }
+    });
+
+    mySocket.on('pickup', () => {
+      console.log("pickup");
+    });
+
+    mySocket.on('hangup', () => {
+      console.log("hangup");
     });
 
     // Menu is active by default
@@ -101,10 +120,8 @@ const App = React.createClass({
       </div>
     )
   }
-})
+});
 
-// Finally, we render a <Router> with some <Route>s.
-// It does all the fancy routing stuff for us.
 render((
   <Router>
     <Route path="/" component={App}>
