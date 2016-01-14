@@ -4,6 +4,9 @@ var myEmitter = require('./MyEmitter');
 
 function RotaryPhone(){
 
+  this.HANGUP = 10;
+  this.PICKUP = 20;
+
   //connectTo Arduino
   this.arduinoPlugged = false;
   this.portName = false; //'/dev/tty.usbmodem1421';
@@ -38,10 +41,21 @@ RotaryPhone.prototype.connectToArduino = function () {
 };
 
 RotaryPhone.prototype._dataReceive = function (data) {
-  console.log(data);
-  //TODO : switch les valeurs a émit
-  myEmitter.emit('dataReceive', data);
+  var numSend = parseInt(data);
+  switch (numSend) {
+    case this.HANGUP:
+      myEmitter.emit('hangup');
+      break;
+    case this.PICKUP:
+      myEmitter.emit('pickup');
+      break;
+    default:
+      if(numSend < 10 && numSend >= 0) {
+        myEmitter.emit('numComposed', numSend);
+      } else {
+        console.log("Data Received not recognise : " + numSend);
+      }
+  }
 };
-
 
 module.exports = RotaryPhone;

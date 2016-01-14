@@ -1,5 +1,8 @@
 #include <RotoPhone.h>
 
+const int HANGUP = 10;
+const int PICKUP = 20;
+
 int _rotaryNumber;
 boolean _isPick;
 
@@ -25,9 +28,9 @@ void loop() {
   // - Send message
   if(isPickUp != _isPick){
     if(isPickUp){
-      Serial.println("hang up");
+      Serial.println(HANGUP);
     } else {
-      Serial.println("pick up");
+      Serial.println(PICKUP);
     }
     _isPick = isPickUp;
   }

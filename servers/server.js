@@ -29,9 +29,9 @@ myEmitter.on('hangup', function() {
 });
 
 myEmitter.on('pickup', function() {
-  console.log('emitter hang up');
+  console.log('emitter pick up');
 });
 
-myEmitter.on('dataReceive', function(num) {
+myEmitter.on('numComposed', function(num) {
   console.log('numero composed : ' + num);
 });
