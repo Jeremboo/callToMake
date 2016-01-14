@@ -14,6 +14,18 @@ io.on('connection', function(socket){
     console.log('mon texte :', text);
     say.speak(null, text);
   });
+
+  myEmitter.on('numComposed', function(num) {
+    console.log('numero composed : ' + num);
+    if (num == 1) {
+      socket.emit('channel', 1);
+    }
+
+    if (num == 2) {
+      socket.emit('channel', 2);
+    }
+  });
+
 });
 
 io.on('disconnect', function(socket){
@@ -34,11 +46,4 @@ myEmitter.on('hangup', function() {
 
 myEmitter.on('pickup', function() {
   console.log('emitter pick up');
-});
-
-myEmitter.on('numComposed', function(num) {
-  console.log('numero composed : ' + num);
-  if (num == 1) {
-    socket.emit('channel', 1);
-  }
 });

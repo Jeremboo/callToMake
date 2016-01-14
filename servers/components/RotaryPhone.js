@@ -10,21 +10,21 @@ function RotaryPhone(){
   //connectTo Arduino
   this.arduinoPlugged = false;
   this.portName = '/dev/ttyACM0'; // '/dev/tty.usbmodem1421'; '/dev/ttyACM0';
-  this.connectToArduino();
+  //  this.connectToArduino();
 
-  // serialport.list(function (err, ports) {
-  //   ports.forEach(function(port) {
-  //     if(port.manufacturer.search("Arduino") >= 0) {
-  //       this.portName = port.comName;
-  //     }
-  //   }.bind(this));
-  //
-  //   if(this.portName){
-  //     this.connectToArduino();
-  //   } else {
-  //     console.error(" ERROR : Arduino not plugged");
-  //   }
-  // }.bind(this));
+  serialport.list(function (err, ports) {
+    ports.forEach(function(port) {
+      if(port.pnpId && port.pnpId.match(/arduino/g)) {
+        this.portName = port.comName;
+      }
+    }.bind(this));
+ 
+    if(this.portName){
+      this.connectToArduino();
+    } else {
+      console.error(" ERROR : Arduino not plugged");
+    }
+  }.bind(this));
 }
 
 RotaryPhone.prototype.connectToArduino = function () {
