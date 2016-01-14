@@ -6,13 +6,23 @@ By [Mathis Biabiany](https://github.com/mats31) and [Jérémie Boulay](www.jerem
 
 ## Our Project
 
+[Fiche produit](https://github.com/mats31) et [Mode d'emploi](https://github.com/mats31).
+
 Nous souhaitons redonner vie à un téléphone à cadran en détournant ses anciennes fonctionnalitées pour leur en donner de nouvelles plus dans l'air du temps.
 
 Notre but est de pouvoir connecter notre téléphone à une application logiciel afin d'associer un numéro du téléphone à l'un des services proposés par l'application.
 
-Par exemple, il serra possible d'associer le numéro "4" du téléphone à une action spécifique tel que "activer/desactiver le wifi".
+#### Liste de fonctionnalitées possibles :
 
-[Fiche produit](https://github.com/mats31) et [Mode d'emploi](https://github.com/mats31).
+- Afficher la météo
+- Mettre en veille l'ordinateur
+- Ajouter une tache à une toDoList
+- Ouvrir une application (commande vocale)
+- Faire une recherche (commande vocale)
+- Envoyé un tweet (commande volace)
+- Activé/Désactivé la Wifi
+- Allumer/Eteindre un object connecté (lampe)
+- ...
 
 [](https://github.com/mats31)
 
@@ -23,6 +33,20 @@ Par exemple, il serra possible d'associer le numéro "4" du téléphone à une a
 ## Schema du montage
 
 <img alt="Schema de montage" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/schemaMontage.jpg?raw=true">
+
+### Inspirations
+
+[IFTTT](https://ifttt.com/recipes)
+
+<img alt="IFTTT" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/inspi/iftt.png?raw=true">
+
+[KickStarter search](https://www.kickstarter.com/discover/categories/design?sort=end_date)
+
+<img alt="KickStarter search" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/inspi/kickstarter search.png?raw=true">
+
+### Mockup
+
+<img alt="KickStarter search" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/maquette.jpg?raw=true">
 
 
 # Déroulement du workshop
@@ -124,7 +148,7 @@ Lors du cablage, il nous a fallu assembler le cablage du rotor ainsi que celui d
 
 Il a donc fallu mettre le cablage du combiné en [INPUT_PULLUP](https://www.arduino.cc/en/Tutorial/InputPullupSerial) afin d'avoir deux cablages séparés.
 
-<img alt="Arduino to RotaryPhone" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/3_callToMake_arduinoMontage.JPG?raw=true" width="500">
+<img alt="Arduino to RotaryPhone" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/4_callToMake_arduinoMontage.JPG?raw=true" width="500">
 
 #### Données envoyées
 
