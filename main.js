@@ -14,6 +14,6 @@ mb.on('ready', function ready () {
   mb.on('after-create-window', function () {
     // debugWindow.openDevTools()
     // debugWindow.loadURL('file://' + __dirname + '/index.html')
-    mb.window.loadURL('file://' + __dirname + '/index.html')
+    mb.window.loadURL('file://' + __dirname + '/app/index.html')
   })
 })
