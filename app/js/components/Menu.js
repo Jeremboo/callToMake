@@ -11,9 +11,11 @@ class Menu extends React.Component {
       <ul>
         <li><Link to="/mytranslation">My Translation</Link></li>
         <li><Link to="/meteo">My Meteo</Link></li>
-        <li>Fonctionnalité 3</li>
-        <li>Fonctionnalité 4</li>
-        <li>Fonctionnalité 5</li>
+        <li>Toggle Wifi</li>
+        <li>ScreenShot</li>
+        <li>Sleepnow</li>
+        <li>Open navigator</li>
+        <li>Open Photoshop</li>
       </ul>
     )
   }

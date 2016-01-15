@@ -51,10 +51,10 @@ const App = React.createClass({
           descktopSocket.emit('screenCapture');
           break;
         case 4:
-          descktopSocket.emit('openApp', "Google Chrome");
+          descktopSocket.emit('sleepnow');
           break;
         case 5:
-          descktopSocket.emit('sleepnow');
+          descktopSocket.emit('openApp', "Google Chrome");
           break;
         case 6:
           descktopSocket.emit('openApp', "Adobe Photoshop CC 2015");
