@@ -86,7 +86,7 @@ Mais le signal permettant de définir le numéro composé n'est pas net et donne
 
 Nous avons donc récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état grâce à un `attachInterrupt`. Ce qui nous a permis d'ommettre les aléas du signal capté et de pouvoir compter le nombre de césures dans le signal.
 
-[Code de test ici.](https://github.com/Jeremboo/callToMake/blob/master/0_TESTS/arduino/rotaryPhone/rotaryPhone.ino)
+[Code de test ici.](https://github.com/Jeremboo/callToMake/blob/master/1_TESTS/arduino/rotaryPhone/rotaryPhone.ino)
 
 Au final, nous avons utilisé la librairie [RotoPhone](https://github.com/tournevis/rotoPhone) écrite par [Arthur Rob](https://github.com/tournevis) afin d'avoir un projet bien segmenté.
 
@@ -143,12 +143,8 @@ De ce fait, nous avons décidé de garder le haut parleur de base du combiné po
 
 <img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/2_callToMake_usingMicrophone2.JPG?raw=true" width="300">
 
-Après avoir branché le microphone en série à une pin analogique de l'arduino ([voir code ici](https://github.com/Jeremboo/callToMake/blob/master/0_TEST/arduino/microphone/microphone.ino)), nous avons pu visualiser le signal envoyé. Nous pouvons en conclure que le micro peut être utilisé même si un amplificateur doit sûrement être ajouté au montage.
+Après avoir branché le microphone en série à une pin analogique de l'arduino ([voir code ici](https://github.com/Jeremboo/callToMake/blob/master/1_TESTS/arduino/microphone/microphone.ino)), nous avons pu visualiser le signal envoyé. Nous pouvons en conclure que le micro peut être utilisé même si un amplificateur doit sûrement être ajouté au montage.
 
-
-<<<<<<< HEAD
-## 2 _ Montage
-=======
 
 ## 2 _ Création de l'application
 
@@ -181,7 +177,6 @@ Mise en veille, activation/désactivation de la wifi... Ces fonctionnalités son
 
 
 ## 3 _ Montage
->>>>>>> 33582fba7e7724cdb79f766b0a9d17e4c0c8834a
 
 ### Montage avec l'arduino
 
@@ -209,11 +204,7 @@ La carte Arduino est lié au Raspberry via USB qui elle-même est alimentée via
 
 Grâce au serveur `Node.js` intégré et à la librairie `SerialPort` il est possible d'écouté l'Arduino comme dit précedemment.
 
-<<<<<<< HEAD
 C'est grâce à ce serveur que l'application Descktop peut communiquer avec les fonctionnalités du téléphone via internet (cable ethernet OU clé wifi). Il a fallut faire un script de lancement pour que la raspberry puisse lancer automatiquement le serveur node.js.
-=======
-C'est grâce à ce serveur que l'application Desktop peut communiquer avec les fonctionnalités du téléphone via internet (cable ethernet OU clé wifi).
->>>>>>> 33582fba7e7724cdb79f766b0a9d17e4c0c8834a
 
 Enfin, la raspberry contrôle aussi le combiné. Elle émet via la prise jack le son et capture le signal du microphone via les pins de la carte (l'Arduino n'étant pas assez puissante pour gèrer ces données).
 
@@ -250,14 +241,14 @@ La capture du son se fait via le module node.js [say.Js](https://github.com/mara
 
 La fonctionnalitée de traduction utilise l'API de [MyMemory](https://mymemory.translated.net/fran%C3%A7ais/) pour traduire ce que l'on dit via le combiné dans la langue voulue avant de retourner le résultat au combiné après quelques secondes.
 
-<img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/7_callToMake_utilisation2.JPG?raw=true" width="300">
+<img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/7_callToMake_utilisation2.jpg?raw=true" width="300">
 
 
 ### Fonctionnalité météo :
 
 A l'aide de [http://forecast.io/](http://forecast.io/) nous avons pu ajouté la météo dans nos fonctionnalités
 
-<img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/7_callToMake_utilisation3.JPG?raw=true" width="300">
+<img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/7_callToMake_utilisation3.jpg?raw=true" width="300">
 
 ### Fonctionnalités interragissant avec l'ordinateur :
 
@@ -273,7 +264,7 @@ Il suffit de brancher le cable USB et Ethernet du téléphone à l'ordinateur et
 
 Ensuite, composer un numéro pour lancer une action de l'application et suivre les instructions.
 
-<img alt="Utilisateur" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/7_callToMake_utilisation.JPG?raw=true" width="500">
+<img alt="Utilisateur" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/7_callToMake_utilisation.jpg?raw=true" width="500">
 
 
 
