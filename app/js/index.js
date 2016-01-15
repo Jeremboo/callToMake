@@ -14,8 +14,8 @@ let wifiActived = true; // TODO mettre dans APP
 // ##
 // CONNECTION TO ROTARY PHONE & DESCKTOP
 //TODO trouver automatiquement l'adresse ID grace a electron.
-export const rotatyPhoneSocket = io.connect('http://192.168.2.2:2345', { 'force new connection': true });
-const descktopSocket = io.connect('http://localhost:3334', { 'force new connection': true });
+export const rotatyPhoneSocket = io.connect('http://192.168.3.2:2345', { 'force new connection': true });
+const desktopSocket = io.connect('http://localhost:3334', { 'force new connection': true });
 
 rotatyPhoneSocket.on('connected', () => {
   console.log("Phone connected");
@@ -24,7 +24,7 @@ rotatyPhoneSocket.on('error', (errorMessage) => {
   console.error(errorMessage);
 });
 
-descktopSocket.on('connected', () => {
+desktopSocket.on('connected', () => {
   console.log("Descktop connected");
 });
 
@@ -36,6 +36,7 @@ const App = React.createClass({
     // ROTARY PHONE SOCKET
     rotatyPhoneSocket.on('channel', (channel) => {
       console.log("numero composed :" + channel);
+      desktopSocket.emit('channel');
 
       switch (channel) {
         case 0:
@@ -48,16 +49,16 @@ const App = React.createClass({
           this._toggleWifi();
           break;
         case 3:
-          descktopSocket.emit('screenCapture');
+          desktopSocket.emit('screenCapture');
           break;
         case 4:
-          descktopSocket.emit('sleepnow');
+          desktopSocket.emit('sleepnow');
           break;
         case 5:
-          descktopSocket.emit('openApp', "Google Chrome");
+          desktopSocket.emit('openApp', "Google Chrome");
           break;
         case 6:
-          descktopSocket.emit('openApp', "Adobe Photoshop CC 2015");
+          desktopSocket.emit('openApp', "Adobe Photoshop CC 2015");
           // TODO ouvrir un truc avec la commande vocale
           break;
         case 7:
@@ -66,7 +67,7 @@ const App = React.createClass({
           break;
         case 9:
           //TODO ajouter la prise de photo avec webcam
-          descktopSocket.emit('imagesnap');
+          desktopSocket.emit('imagesnap');
           break;
         default:
           console.log("ERROR : number not recognized :" + channel);
@@ -99,7 +100,7 @@ const App = React.createClass({
 
   _toggleWifi: function(){
     wifiActived = !wifiActived;
-    descktopSocket.emit('toggleWifi', wifiActived);
+    desktopSocket.emit('toggleWifi', wifiActived);
     this.history.pushState(null, '/wifi');
   },
 
