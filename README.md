@@ -1,6 +1,6 @@
 # CallToMake
 
-Reappropriation of a rotary phone with the aid of an Arduino through a workshop at Gobelin, l'école de l'image.
+Reappropriation of a rotary phone with the help of an Arduino through a workshop at Gobelin, l'école de l'image.
 
 By [Mathis Biabiany](https://github.com/mats31) and [Jérémie Boulay](www.jeremieboulay.fr).
 
@@ -8,9 +8,9 @@ By [Mathis Biabiany](https://github.com/mats31) and [Jérémie Boulay](www.jerem
 
 [Fiche produit](https://github.com/mats31) et [Mode d'emploi](https://github.com/mats31).
 
-Nous souhaitons redonner vie à un téléphone à cadran en détournant ses anciennes fonctionnalitées pour leur en donner de nouvelles plus dans l'air du temps.
+Nous souhaitons redonner vie à un téléphone à cadran en détournant ses anciennes fonctionnalités pour leur en donner de nouvelles plus dans l'air du temps.
 
-Notre but est de pouvoir connecter notre téléphone à une application logiciel afin d'associer un numéro du téléphone à l'un des services proposés par l'application.
+Notre but est de pouvoir connecter notre téléphone à une application logiciel afin d'associer un chiffre du téléphone à l'un des services proposés par l'application.
 
 #### Liste de fonctionnalitées possibles :
 
@@ -20,36 +20,43 @@ Notre but est de pouvoir connecter notre téléphone à une application logiciel
 - Ouvrir une application (commande vocale)
 - Faire une recherche (commande vocale)
 - Envoyé un tweet (commande volace)
-- Activé/Désactivé la Wifi
+- Activer/Désactiver la Wifi
 - Allumer/Eteindre un object connecté (lampe)
+- Faire une capture d'écran
+- Prendre une photo avec sa webcam
 - ...
 
 [](https://github.com/mats31)
 
-## Schema du workflow
+## Schéma du workflow
 
 <img alt="UML" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/UML.jpg?raw=true">
 
-## Schema du montage
+## Schéma du montage
 
-<img alt="Schema de montage" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/schemaMontage.jpg?raw=true">
+<img alt="Schéma de montage" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/schemaMontage.jpg?raw=true">
 
 ### Inspirations
 
 [IFTTT](https://ifttt.com/recipes)
 
-<img alt="IFTTT" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/inspi/iftt.png?raw=true">
+<img alt="IFTTT" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/inspi/iftt.png?raw=true" width="300">
 
 [KickStarter search](https://www.kickstarter.com/discover/categories/design?sort=end_date)
 
-<img alt="KickStarter search" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/inspi/kickstarter search.png?raw=true">
+<img alt="KickStarter search" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/inspi/kickstarter search.png?raw=true" width="300">
 
 ### Mockup
 
-<img alt="KickStarter search" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/maquette.jpg?raw=true">
+<img alt="KickStarter search" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/maquette.jpg?raw=true" width="300">
+
+
 
 
 # Déroulement du workshop
+
+
+
 
 ## 1 _ Utilisation des composants du téléphone
 
@@ -65,9 +72,9 @@ Notre but est de pouvoir connecter notre téléphone à une application logiciel
 
 Le cadran est composé de deux interrupteurs qui ouvrent et ferment la ligne afin de donner différentes informations :
 
-- L'interupteur lié au circuit bleu se ferme lorsque l'on commence à composer un numéro et que l'on quitte la position initiale.
+- L'interrupteur lié au circuit bleu se ferme lorsque l'on commence à composer un numéro et que l'on quitte la position initiale.
 
-- L'interupteur lié au circuit rouge fournit des impulsions lorsque le cadran est relaché en s'ouvrant et se refermant n fois en fonction du chiffre composé.
+- L'interrupteur lié au circuit rouge fournit des impulsions lorsque le cadran est relaché en s'ouvrant et se refermant n fois en fonction du chiffre composé.
 
 Il est donc possible à l'aide de ces deux signaux de récuperer via l'Arduino le numéro composé.
 
@@ -76,7 +83,7 @@ Mais le signal permettant de définir le numéro composé n'est pas net et donne
 - `010101011`
 - `0110100011`
 
-Nous avons donc récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état grâce à un `attachInterrupt`. Ce qui nous a permis d'ommettre les aléas du signal capté et d'ainsi de pouvoir compté le nombre de scésures dans le signal.
+Nous avons donc récupéré le signal analogique pour l'analyser et compter uniquement ses changements d'état grâce à un `attachInterrupt`. Ce qui nous a permis d'ommettre les aléas du signal capté et de pouvoir compter le nombre de césures dans le signal.
 
 [Code de test ici.](https://github.com/Jeremboo/callToMake/blob/master/0_TESTS/arduino/rotaryPhone/rotaryPhone.ino)
 
@@ -86,13 +93,13 @@ Au final, nous avons utilisé la librairie [RotoPhone](https://github.com/tourne
 
 <img alt="RotatyPhone Schema" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/99_callToMake_schema.JPG?raw=true" width="300">
 
-En regardant le schéma de cablage du téléphone et grâce à un script arduino & cablage simple, nous avons pu détecter deux points auquels il était possible de se brancher pour utiliser le mécanisme du combiné comme un simple interrupteur.
+En regardant le schéma de cablage du téléphone et grâce à un script arduino & cablage simple, nous avons pu détecter deux points sur lesquels il était possible de se brancher pour utiliser le mécanisme du combiné comme un simple interrupteur.
 
-Malheureusement, le changement d'état n'était pas net et produisait un signal avec des intterférences tel que :
+Malheureusement, le changement d'état n'était pas net et produisait un signal avec des interférences telles que :
 
 - `0000000000001100101011100111111111111111111`
 
-Ce qui rend impossible l'utilisation de la fonction `attachInterrupt`. Il a donc fallut utiliser la méthode [debounce](https://www.arduino.cc/en/Tutorial/Debounce) afin d'être sur qu'un changement d'état s'oppère réellement avant de le valider.
+Ce qui rend impossible l'utilisation de la fonction `attachInterrupt`. Il a donc fallu utiliser la méthode [debounce](https://www.arduino.cc/en/Tutorial/Debounce) afin d'être sûr qu'un changement d'état s'oppère réellement avant de le valider.
 
 ```
 ...
@@ -115,7 +122,7 @@ return isPick;
 
 ```
 
-Nous avons ensuite ajouté cette fonctionnalitée à la librairie [RotoPhone](https://github.com/tournevis/rotoPhone) afin de la rendre compatible avec la capture du signal.
+Nous avons ensuite ajouté cette fonctionnalité à la librairie [RotoPhone](https://github.com/tournevis/rotoPhone) afin de la rendre compatible avec la capture du signal.
 
 ### Utilisation du combiné
 
@@ -135,10 +142,41 @@ De ce fait, nous avons décidé de garder le haut parleur de base du combiné po
 
 <img alt="Microphone du combiné" src="https://github.com/Jeremboo/callToMake/blob/master/0_ASSETS/photos/2_callToMake_usingMicrophone2.JPG?raw=true" width="300">
 
-Après avoir branché le microphone en série à une pin analogique de l'arduino ([voir code ici](https://github.com/Jeremboo/callToMake/blob/master/0_TEST/arduino/microphone/microphone.ino)), nous avons pu visualiser le signal envoyé. Nous pouvons en conclure que le micro peu être utilisé même si un amplificateur doit surement être ajouté au montage.
+Après avoir branché le microphone en série à une pin analogique de l'arduino ([voir code ici](https://github.com/Jeremboo/callToMake/blob/master/0_TEST/arduino/microphone/microphone.ino)), nous avons pu visualiser le signal envoyé. Nous pouvons en conclure que le micro peut être utilisé même si un amplificateur doit sûrement être ajouté au montage.
 
 
-## 2 _ Montage
+
+## 2 _ Création de l'application
+
+ L'application Desktop à été faite avec [Electron](http://electron.atom.io/) afin d'avoir une application Mac OSX et [React](https://facebook.github.io/react/) pour les views.
+
+ Celle-ci se connecte en web socket au serveur node.js intégré à notre Raspberry afin d'écouter les actions réalisées sur le téléphone. (voir le montage avec la raspberry).
+
+ Pour ce qui est de la gestion du son du téléphone, la capture du son se fait via le module node.js [say.Js](https://github.com/marak/say.js/) qui est donc intégré à la rapsberry et qui convertit en texte ce que l'on dit et inversement.
+
+ Il a donc été possible de jouer du texte écrit en son via l'enceinte du combiné.
+
+ Malheureusement, pour ce qui est de microphone, nous n'avons pas eu le temps de le faire reconnaitre par la raspberry. Nous l'avons donc remplacé temporairement par le micro de l'ordinateur qui s'occupe de la capture avec le module google [SpeatchRecognition](https://developers.google.com/web/updates/2013/01/Voice-Driven-Web-Apps-Introduction-to-the-Web-Speech-API).
+
+### Fonctionnalité de traduction :
+
+La fonctionnalité de traduction utilise l'API de [MyMemory](https://mymemory.translated.net/fran%C3%A7ais/) pour traduire ce que l'on dit via le combiné dans la langue voulue avant de retourner le résultat au combiné après quelques secondes.
+
+**TODO - mettre photo de la fonction**
+
+### Fonctionnalité météo :
+
+A l'aide de [http://forecast.io/](http://forecast.io/) nous avons pu ajouté la météo dans nos fonctionnalités
+
+**TODO - mettre photo de la fonction**
+
+### Fonctionnalité lancement de scripts :
+
+Mise en veille, activation/désactivation de la wifi... Ces fonctionnalités sont des commandes exécutées par Electron.
+
+
+
+## 3 _ Montage
 
 ### Montage avec l'arduino
 
@@ -166,13 +204,39 @@ La carte Arduino est lié au Raspberry via USB qui elle-même est alimentée via
 
 Grâce au serveur `Node.js` intégré et à la librairie `SerialPort` il est possible d'écouté l'Arduino comme dit précedemment.
 
-Cet enssemble représente le téléphone qui est indépendant de l'ordinateur grace à une clé Wifi branchée sur la Raspberry PI lui permettant de s'y connecter via SSH.
+C'est grâce à ce serveur que l'application Desktop peut communiquer avec les fonctionnalités du téléphone via internet (cable ethernet OU clé wifi).
 
-**TODO : expliquer la suite.**
+Enfin, la raspberry contrôle aussi le combiné. Elle émet via la prise jack le son et capture le signal du microphone via les pins de la carte (l'Arduino n'étant pas assez puissante pour gèrer ces données).
+
+Quelques problèmes rencontrés :
+
+- `SerialPort` ne fonctionne pas avec `Node.js 4.0.0`. Il a fallu rétrograder à la version `0.12.6`.
+- La carte SD de la raspberry n'ayant pas beaucoup de stockage, il a fallu supprimer la version graphique de rasbian et optimiser notre projet.
 
 
-## 3 _ Création de l'application
+### Montage final
 
-## 4 _ Connection et dialogue de l'enssemble :
+Afin de faire tenir l'arduino et la Raspberry dans la coque du téléphone, il a fallut déssouder les composants du téléphone inutile.
+
+Nous avons aussi enlevé le cablage inutile afin de faire sortir uniquement du téléphone le cable USB et (potentiellement) le cable Ethernet de la Raspberry.
+
+**TODO - mettre photo du montage**
+
+
+
+
+## 4 _ Utilisation
+
+Il suffit de brancher le cable USB et Ethernet du téléphone à l'ordinateur et de lancer l'application Desktop.
+
+Ensuite, composer un numéro pour lancer une action de l'application.
+
+**TODO - mettre photo du téléphone connecté**
+
+
+
+Un script de lancement à été necessaire pour la raspberry afin de lancer automatiquement le serveur node.js et de forcer l'audio à sortir via la prise jack.
+
+
 
 ## 5 _ Test utilisateur
