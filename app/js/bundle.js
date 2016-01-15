@@ -264,7 +264,7 @@ var MyTranslation = function (_React$Component) {
 
     _this.state = {
       recognition: newRecognition,
-      target: null,
+      target: false,
       speechs: []
     };
 
@@ -296,6 +296,7 @@ var MyTranslation = function (_React$Component) {
   }, {
     key: 'handleStop',
     value: function handleStop() {
+      console.log("recognition stop");
       this.state.recognition.stop();
     }
   }, {
@@ -313,7 +314,7 @@ var MyTranslation = function (_React$Component) {
         ),
         _react2.default.createElement(
           'a',
-          { href: 'javascript:void(0)', className: 'button', onClick: this.handleStop },
+          { href: 'javascript:void(0)', className: 'button', onClick: this.handleStop.bind(this) },
           'STOP !'
         ),
         _react2.default.createElement('p', { id: 'sentance' })
