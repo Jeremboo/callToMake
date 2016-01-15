@@ -17,6 +17,7 @@ var mb = menubar({
 
 mb.on('ready', function() {
   console.log('app is ready');
+  mb.showWindow();
 });
 
 mb.on('after-create-window', function () {
@@ -56,6 +57,11 @@ io.on('connection', function(socket){
   socket.on('openApp', function(name){
     console.log("Open "+name);
     exec('open -a "' + name +'"');
+  });
+
+  socket.on('channel', function(channel){
+    console.log('test');
+    mb.showWindow();
   });
 
   socket.emit('connected');

@@ -114,17 +114,27 @@ var Menu = function (_React$Component) {
         _react2.default.createElement(
           'li',
           null,
-          'Fonctionnalité 3'
+          'Toggle Wifi'
         ),
         _react2.default.createElement(
           'li',
           null,
-          'Fonctionnalité 4'
+          'ScreenShot'
         ),
         _react2.default.createElement(
           'li',
           null,
-          'Fonctionnalité 5'
+          'Sleepnow'
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          'Open navigator'
+        ),
+        _react2.default.createElement(
+          'li',
+          null,
+          'Open Photoshop'
         )
       );
     }
@@ -264,7 +274,7 @@ var MyTranslation = function (_React$Component) {
 
     _this.state = {
       recognition: newRecognition,
-      target: null,
+      target: false,
       speechs: []
     };
 
@@ -296,6 +306,7 @@ var MyTranslation = function (_React$Component) {
   }, {
     key: 'handleStop',
     value: function handleStop() {
+      console.log("recognition stop");
       this.state.recognition.stop();
     }
   }, {
@@ -313,7 +324,7 @@ var MyTranslation = function (_React$Component) {
         ),
         _react2.default.createElement(
           'a',
-          { href: 'javascript:void(0)', className: 'button', onClick: this.handleStop },
+          { href: 'javascript:void(0)', className: 'button', onClick: this.handleStop.bind(this) },
           'STOP !'
         ),
         _react2.default.createElement('p', { id: 'sentance' })
@@ -434,8 +445,8 @@ var wifiActived = true; // TODO mettre dans APP
 // ##
 // CONNECTION TO ROTARY PHONE & DESCKTOP
 //TODO trouver automatiquement l'adresse ID grace a electron.
-var rotatyPhoneSocket = exports.rotatyPhoneSocket = io.connect('http://192.168.2.2:2345', { 'force new connection': true });
-var descktopSocket = io.connect('http://localhost:3334', { 'force new connection': true });
+var rotatyPhoneSocket = exports.rotatyPhoneSocket = io.connect('http://192.168.3.2:2345', { 'force new connection': true });
+var desktopSocket = io.connect('http://localhost:3334', { 'force new connection': true });
 
 rotatyPhoneSocket.on('connected', function () {
   console.log("Phone connected");
@@ -444,7 +455,7 @@ rotatyPhoneSocket.on('error', function (errorMessage) {
   console.error(errorMessage);
 });
 
-descktopSocket.on('connected', function () {
+desktopSocket.on('connected', function () {
   console.log("Descktop connected");
 });
 
@@ -460,6 +471,7 @@ var App = _react2.default.createClass({
     // ROTARY PHONE SOCKET
     rotatyPhoneSocket.on('channel', function (channel) {
       console.log("numero composed :" + channel);
+      desktopSocket.emit('channel');
 
       switch (channel) {
         case 0:
@@ -472,16 +484,16 @@ var App = _react2.default.createClass({
           _this._toggleWifi();
           break;
         case 3:
-          descktopSocket.emit('screenCapture');
+          desktopSocket.emit('screenCapture');
           break;
         case 4:
-          descktopSocket.emit('openApp', "Google Chrome");
+          desktopSocket.emit('sleepnow');
           break;
         case 5:
-          descktopSocket.emit('sleepnow');
+          desktopSocket.emit('openApp', "Google Chrome");
           break;
         case 6:
-          descktopSocket.emit('openApp', "Adobe Photoshop CC 2015");
+          desktopSocket.emit('openApp', "Adobe Photoshop CC 2015");
           // TODO ouvrir un truc avec la commande vocale
           break;
         case 7:
@@ -490,7 +502,7 @@ var App = _react2.default.createClass({
           break;
         case 9:
           //TODO ajouter la prise de photo avec webcam
-          descktopSocket.emit('imagesnap');
+          desktopSocket.emit('imagesnap');
           break;
         default:
           console.log("ERROR : number not recognized :" + channel);
@@ -523,7 +535,7 @@ var App = _react2.default.createClass({
 
   _toggleWifi: function _toggleWifi() {
     wifiActived = !wifiActived;
-    descktopSocket.emit('toggleWifi', wifiActived);
+    desktopSocket.emit('toggleWifi', wifiActived);
     this.history.pushState(null, '/wifi');
   },
 
