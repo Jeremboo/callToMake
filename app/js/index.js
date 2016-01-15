@@ -8,7 +8,7 @@ import MyTranslation from './components/MyTranslation';
 
 // ##
 // CONNECTION TO ROTARY PHONE
-const mySocket = io.connect('http://192.168.2.2:2345');
+export const mySocket = io.connect('http://192.168.2.2:2345');
 //TODO trouver automatiquement l'adresse ID grace a electron.
 
 mySocket.on('connected', (channel) => {
@@ -39,9 +39,9 @@ const App = React.createClass({
       }
     });
 
-    mySocket.on('pickup', () => {
-      console.log("pickup");
-    });
+    // mySocket.on('pickup', () => {
+    //   console.log("pickup");
+    // });
 
     mySocket.on('hangup', () => {
       console.log("hangup");

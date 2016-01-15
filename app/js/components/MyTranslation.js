@@ -1,4 +1,6 @@
 import React from 'react';
+import HeaderPage from './HeaderPage';
+import { mySocket } from '../index';
 
 class MyTranslation extends React.Component {
   constructor(props) {
@@ -14,6 +16,10 @@ class MyTranslation extends React.Component {
 
       this.translation();
     }
+
+    mySocket.on('pickup', () => {
+      this.state.recognition.start();
+    });
 
     this.state = {
       recognition: newRecognition,
@@ -41,20 +47,17 @@ class MyTranslation extends React.Component {
     xhr.send();
   }
 
-  handleStart() {
-    this.state.recognition.start();
-  }
   handleStop() {
     this.state.recognition.stop();
   }
+
   render() {
 
     return (
       <div className="mytranslation">
-        <h2>My Translation :</h2>
-        <p>Veuillez dicter votre phrase :</p>
-        <button onClick={this.handleStart}>Commencer l'enregistrement</button>
-        <button onClick={this.handleStop}>Arréter l'enregistrement</button>
+        <HeaderPage title="My Translation" />
+        <p className="citation">Veuillez dicter votre phrase en utilisant le combiné du téléphone :</p>
+        <a href="javascript:void(0)" className="button" onClick={this.handleStop}>STOP !</a>
         <p id="sentance"></p>
       </div>
     )

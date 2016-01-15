@@ -1,4 +1,5 @@
 import React from 'react';
+import HeaderPage from './HeaderPage';
 
 class Meteo extends React.Component {
   constructor(props) {
@@ -28,7 +29,8 @@ class Meteo extends React.Component {
     const src = "http://forecast.io/embed/#lat=" + this.state.position.latitude + "&lon=" + this.state.position.longitude + "&units=si";
     return(
       <div className="meteo">
-        <iframe id="forecast_embed" type="text/html" frameBorder="0" height="245" width="100%" src={src} > </iframe>
+        <HeaderPage title="My Meteo" />
+        <iframe id="forecast_embed" type="text/html" frameBorder="0" height="800" width="100%" src={src} > </iframe>
       </div>
     )
   }

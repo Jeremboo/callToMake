@@ -1,16 +1,13 @@
 var menubar = require('menubar');
 var BrowserWindow  = require('browser-window');
 
-var mb = menubar();
+var mb = menubar({
+  height: 800,
+  width: 800
+});
 
 mb.on('ready', function ready () {
   console.log('app is ready')
-  // var debugWindow = new BrowserWindow({
-  //         width  : 995,
-  //         height : 600,
-  //         type   : 'desktop',
-  //         frame  : true
-  //       });
   mb.on('after-create-window', function () {
     // debugWindow.openDevTools()
     // debugWindow.loadURL('file://' + __dirname + '/index.html')
