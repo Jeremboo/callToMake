@@ -5,53 +5,104 @@ import { Router, Route, Link, History } from 'react-router'
 import Menu from './components/Menu';
 import Meteo from './components/Meteo';
 import MyTranslation from './components/MyTranslation';
+import Wifi from './components/Wifi';
 
 // ##
-// CONNECTION TO ROTARY PHONE
-const mySocket = io.connect('http://192.168.2.2:2345');
+// var
+let wifiActived = true; // TODO mettre dans APP
+
+// ##
+// CONNECTION TO ROTARY PHONE & DESCKTOP
 //TODO trouver automatiquement l'adresse ID grace a electron.
+const rotatyPhoneSocket = io.connect('http://192.168.2.2:2345', { 'force new connection': true });
+const descktopSocket = io.connect('http://localhost:3334', { 'force new connection': true });
 
-mySocket.on('connected', (channel) => {
-  console.log("Connected");
+rotatyPhoneSocket.on('connected', () => {
+  console.log("Phone connected");
 });
-
-mySocket.on('error', (errorMessage) => {
+rotatyPhoneSocket.on('error', (errorMessage) => {
   console.error(errorMessage);
 });
 
+descktopSocket.on('connected', () => {
+  console.log("Descktop connected");
+});
 
 // ##
 // APP
 const App = React.createClass({
   mixins: [ History ],
   getInitialState: function() {
-    mySocket.on('channel', (channel) => {
+    // ROTARY PHONE SOCKET
+    rotatyPhoneSocket.on('channel', (channel) => {
       console.log("numero composed :" + channel);
 
-      if (channel == 1) {
-        console.log('go to channel ' + channel);
-        this.history.pushState(null, '/mytranslation');
-      }
-
-      if (channel == 2) {
-        console.log('go to channel 2');
-        this.history.pushState(null, '/meteo');
+      switch (channel) {
+        case 0:
+          this.history.pushState(null, '/mytranslation');
+          break;
+        case 1:
+          this.history.pushState(null, '/meteo');
+          break;
+        case 2:
+          this._toggleWifi();
+          break;
+        case 3:
+          descktopSocket.emit('screenCapture');
+          break;
+        case 4:
+          descktopSocket.emit('openApp', "Google Chrome");
+          break;
+        case 5:
+          descktopSocket.emit('sleepnow');
+          break;
+        case 6:
+          descktopSocket.emit('openApp', "Adobe Photoshop CC 2015");
+          // TODO ouvrir un truc avec la commande vocale
+          break;
+        case 7:
+          break;
+        case 8:
+          break;
+        case 9:
+          //TODO ajouter la prise de photo avec webcam
+          descktopSocket.emit('imagesnap');
+          break;
+        default:
+          console.log("ERROR : number not recognized :" + channel);
       }
     });
 
-    mySocket.on('pickup', () => {
+    rotatyPhoneSocket.on('pickup', () => {
       console.log("pickup");
+      this._setIsPick(true);
     });
 
-    mySocket.on('hangup', () => {
+    rotatyPhoneSocket.on('hangup', () => {
       console.log("hangup");
+      this._setIsPick(false);
     });
 
     // Menu is active by default
     this.context.history.pushState(null, '/menu');
 
-    return {};
+    return {
+      phoneConnected: false,
+      descktopConnected: false,
+      isPick : false
+    };
   },
+
+  _setIsPick: function(isPick){
+    this.setState({isPick : isPick});
+  },
+
+  _toggleWifi: function(){
+    wifiActived = !wifiActived;
+    descktopSocket.emit('toggleWifi', wifiActived);
+    this.history.pushState(null, '/wifi');
+  },
+
   render() {
     return (
       <div>
@@ -73,6 +124,7 @@ render((
       <Route path="menu" component={Menu} socket={App} />
       <Route path="mytranslation" component={MyTranslation} />
       <Route path="meteo" component={Meteo} />
+      <Route path="wifi" component={Wifi} wifiStatus={wifiActived} />
     </Route>
   </Router>
 ), document.getElementById('wrapper'))

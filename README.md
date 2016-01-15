@@ -22,6 +22,8 @@ Notre but est de pouvoir connecter notre téléphone à une application logiciel
 - Envoyé un tweet (commande volace)
 - Activé/Désactivé la Wifi
 - Allumer/Eteindre un object connecté (lampe)
+- Faire une capture d'écran
+- Prendre une photo avec sa webcam
 - ...
 
 [](https://github.com/mats31)
@@ -170,7 +172,7 @@ A l'aide de [http://forecast.io/](http://forecast.io/) nous avons pu ajouté la 
 
 ### Fonctionnalitées lancement de scripts :
 
-Mise en veille, activation/desactivation de la wifi... Ces fonctionnalités sont des commandes exécutées par Electron. 
+Mise en veille, activation/desactivation de la wifi... Ces fonctionnalités sont des commandes exécutées par Electron.
 
 
 
