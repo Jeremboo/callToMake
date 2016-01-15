@@ -1,11 +1,11 @@
 html{
   font-size: 62.5%;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Cabin', serif;
 }
 
 header{
   background: black;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Lobster', cursive;
   font-size: 0.8rem;
 }
 
@@ -27,14 +27,50 @@ li{
   background-position: 2% center;
   background-color: white;
   cursor: pointer;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Cabin', serif;
   font-size: 1.2rem;
   padding: 20px 0 20px 14%;
   list-style: none;
 }
+li a{
+  display: block;
+  height: 100%;
+  width: 100%;
+}
 li:hover{
   background-color: #F2ECEB;
 }
+p{
+  font-size: 1.3rem;
+}
+.headerpage{
+  background: #F2F2F2;
+  height: 40px;
+  position: relative;
+  text-align: center;
+}
+.headerpage img{
+  height: 80%;
+  position: absolute;
+  left: 2%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.headerpage h2{
+  margin: 0;
+  padding-top: 10px;
+}
 .mytranslation{
   text-align: center;
+}
+.mytranslation .button{
+  background: #BF9F78;
+  display: inline-block;
+  margin: 0 auto;
+  border-radius: 50%;
+  text-decoration: none;
+  text-align: center;
+  padding: 35px 24px;
+  color: white;
+  font-size: 1.2rem;
 }

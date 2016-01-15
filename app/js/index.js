@@ -14,7 +14,7 @@ let wifiActived = true; // TODO mettre dans APP
 // ##
 // CONNECTION TO ROTARY PHONE & DESCKTOP
 //TODO trouver automatiquement l'adresse ID grace a electron.
-const rotatyPhoneSocket = io.connect('http://192.168.2.2:2345', { 'force new connection': true });
+export const rotatyPhoneSocket = io.connect('http://192.168.2.2:2345', { 'force new connection': true });
 const descktopSocket = io.connect('http://localhost:3334', { 'force new connection': true });
 
 rotatyPhoneSocket.on('connected', () => {
@@ -73,10 +73,16 @@ const App = React.createClass({
       }
     });
 
+<<<<<<< HEAD
     rotatyPhoneSocket.on('pickup', () => {
       console.log("pickup");
       this._setIsPick(true);
     });
+=======
+    // mySocket.on('pickup', () => {
+    //   console.log("pickup");
+    // });
+>>>>>>> 41538aea6cd3a01a9ead3218559f3826cad8bf3d
 
     rotatyPhoneSocket.on('hangup', () => {
       console.log("hangup");
