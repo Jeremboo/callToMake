@@ -73,16 +73,10 @@ const App = React.createClass({
       }
     });
 
-<<<<<<< HEAD
     rotatyPhoneSocket.on('pickup', () => {
       console.log("pickup");
       this._setIsPick(true);
     });
-=======
-    // mySocket.on('pickup', () => {
-    //   console.log("pickup");
-    // });
->>>>>>> 41538aea6cd3a01a9ead3218559f3826cad8bf3d
 
     rotatyPhoneSocket.on('hangup', () => {
       console.log("hangup");
