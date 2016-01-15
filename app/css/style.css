@@ -1,11 +1,11 @@
 html{
   font-size: 62.5%;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Neuton', serif;
 }
 
 header{
   background: black;
-  font-family: 'Cabin', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 0.8rem;
 }
 
@@ -27,7 +27,7 @@ li{
   background-position: 2% center;
   background-color: white;
   cursor: pointer;
-  font-family: 'Old Standard TT', serif;
+  font-family: 'Neuton', serif;
   font-size: 1.2rem;
   padding: 20px 0 20px 14%;
   list-style: none;

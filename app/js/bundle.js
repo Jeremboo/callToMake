@@ -21,20 +21,6 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-// const Menu = React.createClass({
-//   render: function() {
-//     return (
-//       <ul>
-//         <li><Link to="/mytranslation">My Translation</Link></li>
-//         <li>Fonctionnalité 2</li>
-//         <li>Fonctionnalité 3</li>
-//         <li>Fonctionnalité 4</li>
-//         <li>Fonctionnalité 5</li>
-//       </ul>
-//     )
-//   }
-// });
-
 var Menu = function (_React$Component) {
   _inherits(Menu, _React$Component);
 
@@ -104,8 +90,6 @@ var _Menu = require('./components/Menu.js');
 var _Menu2 = _interopRequireDefault(_Menu);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-console.log(_Menu2.default);
 
 // ##
 // CONNECTION TO ROTARY PHONE
