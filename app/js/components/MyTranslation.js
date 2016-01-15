@@ -23,7 +23,7 @@ class MyTranslation extends React.Component {
 
     this.state = {
       recognition: newRecognition,
-      target: null,
+      target: false,
       speechs: []
     };
 
@@ -48,6 +48,7 @@ class MyTranslation extends React.Component {
   }
 
   handleStop() {
+    console.log("recognition stop");
     this.state.recognition.stop();
   }
 
@@ -57,7 +58,7 @@ class MyTranslation extends React.Component {
       <div className="mytranslation">
         <HeaderPage title="My Translation" />
         <p className="citation">Veuillez dicter votre phrase en utilisant le combiné du téléphone :</p>
-        <a href="javascript:void(0)" className="button" onClick={this.handleStop}>STOP !</a>
+        <a href="javascript:void(0)" className="button" onClick={this.handleStop.bind(this)}>STOP !</a>
         <p id="sentance"></p>
       </div>
     )
