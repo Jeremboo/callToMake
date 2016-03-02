@@ -9,13 +9,13 @@ class Menu extends React.Component {
   render() {
     return (
       <ul>
-        <li><Link to="/mytranslation">My Translation</Link></li>
-        <li><Link to="/meteo">My Meteo</Link></li>
-        <li>Toggle Wifi</li>
-        <li>ScreenShot</li>
-        <li>Sleepnow</li>
-        <li>Open navigator</li>
-        <li>Open Photoshop</li>
+        <li><Link to="/mytranslation">1_ English translate</Link></li>
+        <li><Link to="/meteo">2_ My Meteo</Link></li>
+        <li>3_ Toggle Wifi</li>
+        <li>4_ ScreenShot</li>
+        <li>5_ Sleepnow</li>
+        <li>6_ Open navigator</li>
+        <li>7_ Open Photoshop</li>
       </ul>
     )
   }

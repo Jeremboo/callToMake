@@ -4,42 +4,47 @@ html{
 }
 
 header{
-  background: black;
+  background: #C9A478;
   font-family: 'Lobster', cursive;
   font-size: 0.8rem;
 }
 
 header h1{
   color: white;
+  font-size: 4em;
   margin: 0;
-  padding: 20px 0 20px 40px;
+  padding: 20px;
 }
 
 ul{
-  margin: 0;
+  margin: 20px;
   padding: 0;
 }
 
 li{
-  background-image: url(../img/icon1.png);
-  background-repeat: no-repeat;
-  background-size: 10% auto;
-  background-position: 2% center;
   background-color: white;
   cursor: pointer;
   font-family: 'Cabin', serif;
-  font-size: 1.2rem;
-  padding: 20px 0 20px 14%;
+  font-size: 2rem;
   list-style: none;
+  transition: 0.3s;
+  padding: 0.5em;
 }
-li a{
+li a {
   display: block;
   height: 100%;
   width: 100%;
+  color: black;
+  text-decoration: none;
+}
+
+li a:active, li a:hover {
+  color: black;
 }
 li:hover{
   background-color: #F2ECEB;
 }
+
 p{
   font-size: 1.3rem;
 }

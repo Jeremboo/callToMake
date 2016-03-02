@@ -11,8 +11,8 @@ var BrowserWindow  = require('browser-window');
 // ##
 // START APP
 var mb = menubar({
-  height: 800,
-  width: 800
+  height: 500,
+  width: 300
 });
 
 mb.on('ready', function() {

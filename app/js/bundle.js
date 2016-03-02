@@ -99,7 +99,7 @@ var Menu = function (_React$Component) {
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/mytranslation' },
-            'My Translation'
+            '1_ English translate'
           )
         ),
         _react2.default.createElement(
@@ -108,33 +108,33 @@ var Menu = function (_React$Component) {
           _react2.default.createElement(
             _reactRouter.Link,
             { to: '/meteo' },
-            'My Meteo'
+            '2_ My Meteo'
           )
         ),
         _react2.default.createElement(
           'li',
           null,
-          'Toggle Wifi'
+          '3_ Toggle Wifi'
         ),
         _react2.default.createElement(
           'li',
           null,
-          'ScreenShot'
+          '4_ ScreenShot'
         ),
         _react2.default.createElement(
           'li',
           null,
-          'Sleepnow'
+          '5_ Sleepnow'
         ),
         _react2.default.createElement(
           'li',
           null,
-          'Open navigator'
+          '6_ Open navigator'
         ),
         _react2.default.createElement(
           'li',
           null,
-          'Open Photoshop'
+          '7_ Open Photoshop'
         )
       );
     }
